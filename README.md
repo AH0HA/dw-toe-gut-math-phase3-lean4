@@ -50,39 +50,42 @@ on a single CPU). To run it: `lake build e8thetacheck && ./.lake/build/bin/e8the
 
 | File             | Obligation                                                                            |
 |------------------|---------------------------------------------------------------------------------------|
-| `E8/Basic.lean`  | `integerRootOfIndex_injOn` (sub-lemma of `e8_card`; mechanical case analysis).        |
-| `E8/Basic.lean`  | `d5_has_40_roots : (e8Roots.filter InD5).card = 40`.                                  |
 | `E8/H3.lean`     | `h3Group` as the multiplicative closure of `h3Gens`.                                  |
 | `E8/H3.lean`     | `h3_group_card : h3Group.card = 120`.                                                  |
 | `E8/H3.lean`     | `h3RotationSubgroup` and `h3_rotation_subgroup_card : … = 60`.                        |
 | `E8/H3.lean`     | `orbit_sizes_are_icosahedral` for orbits in `projectedRoots`.                         |
 | `E8/Theta.lean`  | `e8_theta_factorizes_over_h3` — the central factorization theorem.                    |
 
-`e8_card : e8Roots.card = 240` is **structurally proved** as
+**`E8/Basic.lean` is sorry-free.** Both cardinality theorems
 
 ```
-unfold e8Roots
-rw [Finset.card_union_of_disjoint disjoint_int_half,
-    integerRoots_card, halfIntegerRoots_card]
+e8_card        : e8Roots.card = 240
+d5_has_40_roots: (e8Roots.filter InD5).card = 40
 ```
 
-via the following fully-discharged lemmas:
+are fully proved end-to-end via the same template:
 
-* `integerRootIndex_card = 112` — by `native_decide` on the Bool-typed
-  index set `{((i,j),(s₁,s₂)) | i < j}`.
-* `halfIntegerIndex_card = 128` — by `native_decide` on the parity
-  subset of `Fin 8 → Bool`.
-* `halfIntegerOfIndex_injective` — direct.
-* `halfIntegerRoots_card = 128` — image of an injection.
-* `integerRoots_have_zero_entry` — pigeonhole on Fin 8 vs the 2-element
-  support.
-* `halfIntegerRoots_no_zero_entry` — `1/2 ≠ 0` and `-1/2 ≠ 0`.
-* `disjoint_int_half` — combines the two no/has-zero lemmas.
-* `integerRoots_card = 112` — image card via `Finset.card_image_of_injOn`,
-  modulo the single remaining `integerRootOfIndex_injOn` sorry.
+1. Refactor each E₈ root family as the image of a *decidable* index
+   set under an explicit injection into `Fin 8 → ℝ`.
+2. Compute the cardinalities of the index sets via `native_decide`.
+3. Prove the embeddings are injective on their domains.
+4. Combine via `Finset.card_image_of_injOn`,
+   `Finset.card_union_of_disjoint`, and `Finset.filter_union`.
 
-So `e8_card` is currently **proved up to one mechanical case-analysis
-lemma** (`integerRootOfIndex_injOn`), not deferred wholesale.
+Supporting lemmas (all fully proved, no `sorry`):
+
+* `integerRootIndex_card = 112`, `halfIntegerIndex_card = 128`,
+  `integerRootIndexD5_card = 40` — by `native_decide`.
+* `bool_sign_injective` — the Bool→ℝ sign function is injective.
+* `halfIntegerOfIndex_injective`, `integerRootOfIndex_injOn` — embedding
+  injectivity.
+* `halfIntegerRoots_card = 128`, `integerRoots_card = 112` — image cards.
+* `integerRoots_have_zero_entry`, `halfIntegerRoots_no_zero_entry` —
+  pigeonhole / direct case split.
+* `disjoint_int_half` — combines the two zero-entry lemmas.
+* `halfIntegerRoots_filter_InD5 = ∅`,
+  `integerRootOfIndex_InD5_iff`,
+  `integerRoots_filter_InD5_eq` — the D₅ filter analysis.
 
 The H₃ generators are concrete in `E8/H3.lean`: three rotations
 (`h3Rot2`, `h3Rot3`, `h3Rot5` — orders 2, 3, 5) plus central inversion
@@ -92,8 +95,6 @@ group H₃ of order 120.
 
 ### Difficulty assessment of the remaining work
 
-* **Easy** (mechanical case work, hours): `integerRootOfIndex_injOn`,
-  `d5_has_40_roots` (same template as `e8_card`).
 * **Hard** (research-level formalisation): `h3Group` /
   `h3_group_card = 120` and the rotation subgroup analogue. These
   require either (a) Mathlib's `CoxeterGroup` machinery, (b) explicit
