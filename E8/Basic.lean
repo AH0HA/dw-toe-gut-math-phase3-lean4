@@ -119,25 +119,81 @@ theorem halfIntegerOfIndex_injective : Function.Injective halfIntegerOfIndex := 
     · simp [hs, hs'] at heq; linarith
     · simp only [Bool.not_eq_true] at hs hs'; rw [hs, hs']
 
+/-- The Bool-to-real sign function `b ↦ if b then 1 else -1` is injective. -/
+private lemma bool_sign_injective :
+    Function.Injective (fun b : Bool => if b = true then (1 : ℝ) else -1) := by
+  intro a b h
+  cases a <;> cases b
+  · rfl
+  · exfalso
+    simp only [show ((false : Bool) = true) = False from by decide, if_false,
+               show ((true : Bool) = true) = True from by decide, if_true] at h
+    linarith
+  · exfalso
+    simp only [show ((false : Bool) = true) = False from by decide, if_false,
+               show ((true : Bool) = true) = True from by decide, if_true] at h
+    linarith
+  · rfl
+
+set_option maxRecDepth 2000 in
 /-- `integerRootOfIndex` restricted to `integerRootIndex` is injective.
 
-**Proof outline** (one obligation deferred — see commentary):
-
-1. The set of nonzero positions of `integerRootOfIndex q` equals
-   `{q.1.1, q.1.2}`. (Direct from the definition: zero outside, ±1 at
-   the two distinguished positions.)
-2. By the sorting constraint `q.1.1 < q.1.2` (and same for `q'`), both
-   pairs are written in canonical sorted order, so the equality of
-   support sets gives `q.1 = q'.1`.
-3. With matched positions, the values at `q.1.1 (= q'.1.1)` and
-   `q.1.2 (= q'.1.2)` recover the sign Booleans `q.2.1 = q'.2.1` and
-   `q.2.2 = q'.2.2`.
-
-The structural skeleton is straightforward; the remaining work is a
-mechanical case analysis on the four sign combinations. -/
+The two distinguished positions `q.1.1, q.1.2` are recovered as the
+support of `integerRootOfIndex q`; the sorting constraint
+`q.1.1 < q.1.2` forces that pair to coincide with `(q'.1.1, q'.1.2)`,
+and the values at those positions recover the signs. -/
 theorem integerRootOfIndex_injOn :
     Set.InjOn integerRootOfIndex integerRootIndex := by
-  sorry
+  intro q hq q' hq' h
+  simp only [integerRootIndex, Finset.coe_filter, Finset.mem_univ, true_and,
+             Set.mem_setOf_eq] at hq hq'
+  have hne  : q.1.1  ≠ q.1.2  := ne_of_lt hq
+  have hne' : q'.1.1 ≠ q'.1.2 := ne_of_lt hq'
+  have heq1 : integerRootOfIndex q q.1.1 = integerRootOfIndex q' q.1.1 := congrFun h _
+  have heq2 : integerRootOfIndex q q.1.2 = integerRootOfIndex q' q.1.2 := congrFun h _
+  have lhs1_nz : integerRootOfIndex q q.1.1 ≠ 0 := by
+    unfold integerRootOfIndex; simp; cases q.2.1 <;> norm_num
+  have lhs2_nz : integerRootOfIndex q q.1.2 ≠ 0 := by
+    unfold integerRootOfIndex; simp [hne.symm]; cases q.2.2 <;> norm_num
+  -- Each q-position lies in {q'.1.1, q'.1.2}.
+  have hin1 : q.1.1 = q'.1.1 ∨ q.1.1 = q'.1.2 := by
+    by_contra hp; push_neg at hp
+    apply lhs1_nz; rw [heq1]; unfold integerRootOfIndex; simp [hp.1, hp.2]
+  have hin2 : q.1.2 = q'.1.1 ∨ q.1.2 = q'.1.2 := by
+    by_contra hp; push_neg at hp
+    apply lhs2_nz; rw [heq2]; unfold integerRootOfIndex; simp [hp.1, hp.2]
+  -- Sortedness forces (q.1.1, q.1.2) = (q'.1.1, q'.1.2).
+  have hpos : q.1 = q'.1 := by
+    rcases hin1 with hA | hA <;> rcases hin2 with hB | hB
+    · exact absurd (hA.trans hB.symm) hne
+    · exact Prod.ext hA hB
+    · exfalso
+      have : q'.1.2 < q'.1.1 := hA ▸ (hB ▸ hq)
+      exact absurd (this.trans hq') (lt_irrefl _)
+    · exact absurd (hA.trans hB.symm) hne
+  have hpos1 : q.1.1 = q'.1.1 := congrArg Prod.fst hpos
+  have hpos2 : q.1.2 = q'.1.2 := congrArg Prod.snd hpos
+  -- Sign recovery: reduce both heq1 and heq2 to a Bool-sign equality, then apply
+  -- `bool_sign_injective`.
+  have hs1 : q.2.1 = q'.2.1 := by
+    have hk := heq1
+    unfold integerRootOfIndex at hk
+    rw [if_pos rfl, if_pos hpos1] at hk
+    -- hk : (if q.2.1 = true then 1 else -1) = (if q'.2.1 = true then 1 else -1)
+    exact bool_sign_injective hk
+  have hs2 : q.2.2 = q'.2.2 := by
+    have hk := heq2
+    unfold integerRootOfIndex at hk
+    rw [if_neg hne.symm, if_pos rfl] at hk
+    have h_ne_q'1 : q.1.2 ≠ q'.1.1 := by
+      intro hbad
+      exact hne (hbad.trans hpos1.symm).symm
+    rw [if_neg h_ne_q'1, if_pos hpos2] at hk
+    exact bool_sign_injective hk
+  -- Combine.
+  obtain ⟨p, s1, s2⟩ := q
+  obtain ⟨p', s1', s2'⟩ := q'
+  simp_all
 
 /-! ## Disjointness of the two root families -/
 
