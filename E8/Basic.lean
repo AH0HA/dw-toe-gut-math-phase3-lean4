@@ -268,10 +268,102 @@ vanish. -/
 def InD5 (v : Fin 8 → ℝ) : Prop :=
   v 5 = 0 ∧ v 6 = 0 ∧ v 7 = 0
 
-/-- D₅ inherits 40 roots from this embedding (8·5 root vectors with a single
-±1 pair amongst the first 5 coordinates). -/
+/-! ## D₅ sublattice cardinality
+
+Same template as `e8_card`: the half-integer roots have no zero entries
+so are entirely filtered out by `InD5`; the integer roots in D₅ are
+exactly those whose support lies in `{0,1,2,3,4}`, i.e. `q.1.2 < 5` in
+the index. -/
+
+/-- Decidable index restricted to the D₅ embedding. -/
+def integerRootIndexD5 : Finset ((Fin 8 × Fin 8) × Bool × Bool) :=
+  Finset.univ.filter (fun q => q.1.1 < q.1.2 ∧ q.1.2 < 5)
+
+theorem integerRootIndexD5_card : integerRootIndexD5.card = 40 := by
+  native_decide
+
+/-- The half-integer family contributes nothing to D₅: every coordinate
+is `±1/2 ≠ 0`, so the InD5 condition `v 5 = 0` always fails. -/
+theorem halfIntegerRoots_filter_InD5 :
+    halfIntegerRoots.filter (fun v => InD5 v) = ∅ := by
+  apply Finset.eq_empty_of_forall_notMem
+  intro v hv
+  rw [Finset.mem_filter] at hv
+  exact halfIntegerRoots_no_zero_entry v hv.1 5 hv.2.1
+
+/-- For an integer-root index `q` with `q.1.1 < q.1.2`, the resulting
+vector lies in D₅ iff the larger position `q.1.2` is `< 5`. -/
+theorem integerRootOfIndex_InD5_iff (q : (Fin 8 × Fin 8) × Bool × Bool)
+    (hq : q.1.1 < q.1.2) :
+    InD5 (integerRootOfIndex q) ↔ q.1.2 < 5 := by
+  constructor
+  · -- Forward: D₅ vanishing forces q.1.2 < 5.
+    rintro ⟨h5, h6, h7⟩
+    have hat_q12 : integerRootOfIndex q q.1.2 ≠ 0 := by
+      unfold integerRootOfIndex
+      rw [if_neg hq.ne', if_pos rfl]
+      cases q.2.2 <;> norm_num
+    have hne5 : q.1.2 ≠ (5 : Fin 8) := fun h => hat_q12 (h ▸ h5)
+    have hne6 : q.1.2 ≠ (6 : Fin 8) := fun h => hat_q12 (h ▸ h6)
+    have hne7 : q.1.2 ≠ (7 : Fin 8) := fun h => hat_q12 (h ▸ h7)
+    have hv5 : q.1.2.val ≠ 5 := fun h => hne5 (Fin.ext h)
+    have hv6 : q.1.2.val ≠ 6 := fun h => hne6 (Fin.ext h)
+    have hv7 : q.1.2.val ≠ 7 := fun h => hne7 (Fin.ext h)
+    have hbnd : q.1.2.val < 8 := q.1.2.isLt
+    show q.1.2.val < (5 : Fin 8).val
+    omega
+  · -- Backward: q.1.2 < 5 ⇒ both q-positions live in {0,..,4}, so positions 5,6,7 give 0.
+    intro hlt
+    have h1lt : q.1.1 < (5 : Fin 8) := lt_trans hq hlt
+    refine ⟨?_, ?_, ?_⟩
+    · unfold integerRootOfIndex
+      rw [if_neg (ne_of_lt h1lt).symm, if_neg (ne_of_lt hlt).symm]
+    · unfold integerRootOfIndex
+      have h1 : q.1.1 < (6 : Fin 8) := lt_of_lt_of_le h1lt (by decide)
+      have h2 : q.1.2 < (6 : Fin 8) := lt_of_lt_of_le hlt (by decide)
+      rw [if_neg (ne_of_lt h1).symm, if_neg (ne_of_lt h2).symm]
+    · unfold integerRootOfIndex
+      have h1 : q.1.1 < (7 : Fin 8) := lt_of_lt_of_le h1lt (by decide)
+      have h2 : q.1.2 < (7 : Fin 8) := lt_of_lt_of_le hlt (by decide)
+      rw [if_neg (ne_of_lt h1).symm, if_neg (ne_of_lt h2).symm]
+
+/-- Equality of `(integerRoots.filter InD5)` with the image of the D₅-restricted
+index. -/
+theorem integerRoots_filter_InD5_eq :
+    integerRoots.filter (fun v => InD5 v) =
+      integerRootIndexD5.image integerRootOfIndex := by
+  ext v
+  simp only [Finset.mem_filter, integerRoots, Finset.mem_image,
+             integerRootIndexD5, Finset.mem_filter, Finset.mem_univ, true_and,
+             integerRootIndex]
+  constructor
+  · rintro ⟨⟨q, hq, rfl⟩, hD⟩
+    exact ⟨q, ⟨hq, (integerRootOfIndex_InD5_iff q hq).mp hD⟩, rfl⟩
+  · rintro ⟨q, ⟨hq1, hq2⟩, rfl⟩
+    exact ⟨⟨q, hq1, rfl⟩, (integerRootOfIndex_InD5_iff q hq1).mpr hq2⟩
+
+/-- D₅ inherits 40 roots from this embedding: 10 unordered pairs in
+`Fin 5` × 4 sign choices. -/
 theorem d5_has_40_roots :
-    (e8Roots.filter (fun v => InD5 v)).card = 40 := sorry
+    (e8Roots.filter (fun v => InD5 v)).card = 40 := by
+  unfold e8Roots
+  rw [Finset.filter_union, halfIntegerRoots_filter_InD5, Finset.union_empty,
+      integerRoots_filter_InD5_eq]
+  rw [Finset.card_image_of_injOn ?_]
+  · exact integerRootIndexD5_card
+  · intro q hq q' hq' h
+    apply integerRootOfIndex_injOn
+    · simp only [integerRootIndex, Finset.coe_filter, Finset.mem_univ, true_and,
+                 integerRootIndexD5] at hq
+      simp only [integerRootIndex, Finset.coe_filter, Finset.mem_univ, true_and,
+                 Set.mem_setOf_eq]
+      exact hq.1
+    · simp only [integerRootIndex, Finset.coe_filter, Finset.mem_univ, true_and,
+                 integerRootIndexD5] at hq'
+      simp only [integerRootIndex, Finset.coe_filter, Finset.mem_univ, true_and,
+                 Set.mem_setOf_eq]
+      exact hq'.1
+    · exact h
 
 /-- The "tail" of an E₈ root, i.e. its projection onto the last three
 coordinates. Two roots lie in the same D₅-coset iff their tails agree. -/
