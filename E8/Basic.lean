@@ -18,6 +18,8 @@ discharge each obligation in isolation.
 
 import Mathlib.Data.Finset.Basic
 import Mathlib.Data.Real.Basic
+import Mathlib.Data.Fintype.Pi
+import Mathlib.Data.Fintype.Prod
 import Mathlib.Analysis.SpecialFunctions.Pow.Real
 import Mathlib.Analysis.SpecialFunctions.Pow.NNReal
 import Mathlib.Tactic.NormNum
@@ -43,10 +45,36 @@ theorem phi_sq : phi ^ 2 = phi + 1 := by
     rw [sq]; exact Real.mul_self_sqrt (by norm_num)
   nlinarith [h]
 
-/-- The 240 roots of E₈ as a finite set in ℝ⁸. The actual generation is
-deferred — see `Phase1` Python script for the concrete list of vectors. -/
-def e8Roots : Finset (Fin 8 → ℝ) := sorry
+/-- The 112 *type-D* E₈ roots: vectors with two nonzero entries `±1` in
+distinct positions and zeros elsewhere. Built as a `biUnion` over unordered
+position pairs `i < j` and over the 4 sign choices `(±1, ±1)`. -/
+noncomputable def integerRoots : Finset (Fin 8 → ℝ) :=
+  (Finset.univ : Finset (Fin 8 × Fin 8)).biUnion fun p =>
+    if p.1 < p.2 then
+      (Finset.univ : Finset (Bool × Bool)).image fun s =>
+        fun i =>
+          if i = p.1 then (if s.1 then (1 : ℝ) else -1)
+          else if i = p.2 then (if s.2 then (1 : ℝ) else -1)
+          else 0
+    else ∅
 
+/-- The 128 *half-integral* (spinor) E₈ roots: all coordinates `±1/2` with
+an even number of minus signs. Each `Bool`-valued sign pattern `s : Fin 8 → Bool`
+gives a candidate; we keep those with an even count of `false` entries. -/
+noncomputable def halfIntegerRoots : Finset (Fin 8 → ℝ) :=
+  ((Finset.univ : Finset (Fin 8 → Bool)).filter
+    (fun s => (Finset.univ.filter (fun i => s i = false)).card % 2 = 0)).image
+    fun s i => if s i then (1 : ℝ) / 2 else -(1 : ℝ) / 2
+
+/-- The 240 roots of E₈ as the disjoint union of integer and half-integral
+families. -/
+noncomputable def e8Roots : Finset (Fin 8 → ℝ) :=
+  integerRoots ∪ halfIntegerRoots
+
+/-- |E₈| = 240. The proof would go via `integerRoots.card = 112`,
+`halfIntegerRoots.card = 128`, and disjointness, each by a bijection lemma.
+`decide` cannot close it because `Finset.card` on `Fin 8 → ℝ` relies on
+classical (non-computable) equality on ℝ. -/
 theorem e8_card : e8Roots.card = 240 := sorry
 
 /-- A root is in the standard D₅ embedding when its last three coordinates

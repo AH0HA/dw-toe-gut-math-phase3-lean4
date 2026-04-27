@@ -48,16 +48,27 @@ on a single CPU). To run it: `lake build e8thetacheck && ./.lake/build/bin/e8the
 
 ## Outstanding obligations (the `sorry`s)
 
-| File             | Line(s) | Obligation                                                       |
-|------------------|---------|------------------------------------------------------------------|
-| `E8/Basic.lean`  | 48      | Concrete construction of the 240 E₈ roots as a `Finset`.         |
-| `E8/Basic.lean`  | 50      | `e8Roots.card = 240`.                                            |
-| `E8/Basic.lean`  | 59      | `(e8Roots.filter InD5).card = 40`.                               |
-| `E8/H3.lean`     | 22, 25, 28 | The three reflection generators of H₃ (port from Phase 1 Python). |
-| `E8/H3.lean`     | 36      | The H₃ group as the closure of `h3Gens` under multiplication.    |
-| `E8/H3.lean`     | 39      | `h3Group.card = 120`.                                            |
-| `E8/H3.lean`     | 57      | Orbits in `projectedRoots` have size in {12,20,30,60,120}.       |
-| `E8/Theta.lean`  | 49      | The factorization theorem itself.                                |
+| File             | Obligation                                                                            |
+|------------------|---------------------------------------------------------------------------------------|
+| `E8/Basic.lean`  | `e8_card : e8Roots.card = 240` (via 112 + 128 disjoint union; *not* `decide`-able).    |
+| `E8/Basic.lean`  | `d5_has_40_roots : (e8Roots.filter InD5).card = 40`.                                  |
+| `E8/H3.lean`     | The three concrete reflection generators of H₃ (port from Phase 1 Python).            |
+| `E8/H3.lean`     | `h3Group` as the multiplicative closure of `h3Gens`.                                  |
+| `E8/H3.lean`     | `h3_group_card : h3Group.card = 120`.                                                  |
+| `E8/H3.lean`     | `orbit_sizes_are_icosahedral` for orbits in `projectedRoots`.                         |
+| `E8/Theta.lean`  | `e8_theta_factorizes_over_h3` — the central factorization theorem.                    |
+
+The 240 E₈ roots are now constructed explicitly in `E8/Basic.lean` as a
+disjoint union of `integerRoots` (112 vectors with two ±1 entries) and
+`halfIntegerRoots` (128 vectors with all coordinates ±1/2 and an even
+number of minus signs).
+
+> **Note on `decide`.** `e8_card` cannot be discharged by `decide` /
+> `native_decide` because `Finset.card` on `Fin 8 → ℝ` ultimately rests on
+> `Classical.decEq ℝ`, which is non-computable. The proof has to go via a
+> bijection from each side to a decidable index set
+> (e.g. `Sym2 (Fin 8) × (Bool × Bool)` for `integerRoots` and
+> `{s : Fin 8 → Bool // (#{i | ¬s i}) % 2 = 0}` for `halfIntegerRoots`).
 
 ## Suggested order of attack
 
