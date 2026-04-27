@@ -52,9 +52,9 @@ on a single CPU). To run it: `lake build e8thetacheck && ./.lake/build/bin/e8the
 |------------------|---------------------------------------------------------------------------------------|
 | `E8/Basic.lean`  | `e8_card : e8Roots.card = 240` (via 112 + 128 disjoint union; *not* `decide`-able).    |
 | `E8/Basic.lean`  | `d5_has_40_roots : (e8Roots.filter InD5).card = 40`.                                  |
-| `E8/H3.lean`     | The three concrete reflection generators of H₃ (port from Phase 1 Python).            |
 | `E8/H3.lean`     | `h3Group` as the multiplicative closure of `h3Gens`.                                  |
 | `E8/H3.lean`     | `h3_group_card : h3Group.card = 120`.                                                  |
+| `E8/H3.lean`     | `h3RotationSubgroup` and `h3_rotation_subgroup_card : … = 60`.                        |
 | `E8/H3.lean`     | `orbit_sizes_are_icosahedral` for orbits in `projectedRoots`.                         |
 | `E8/Theta.lean`  | `e8_theta_factorizes_over_h3` — the central factorization theorem.                    |
 
@@ -62,6 +62,12 @@ The 240 E₈ roots are now constructed explicitly in `E8/Basic.lean` as a
 disjoint union of `integerRoots` (112 vectors with two ±1 entries) and
 `halfIntegerRoots` (128 vectors with all coordinates ±1/2 and an even
 number of minus signs).
+
+The H₃ generators are now concrete in `E8/H3.lean`: three rotations
+(`h3Rot2`, `h3Rot3`, `h3Rot5` — orders 2, 3, 5) plus central inversion
+`h3Inv`. The three rotations alone generate the proper rotation
+subgroup I ≅ A₅ of order 60; adjoining `h3Inv` gives the full Coxeter
+group H₃ of order 120.
 
 > **Note on `decide`.** `e8_card` cannot be discharged by `decide` /
 > `native_decide` because `Finset.card` on `Fin 8 → ℝ` ultimately rests on
