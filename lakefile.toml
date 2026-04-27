@@ -1,0 +1,21 @@
+name = "E8ThetaFactorization"
+version = "0.1.0"
+keywords = ["math"]
+defaultTargets = ["E8"]
+
+[leanOptions]
+pp.unicode.fun = true # pretty-prints `fun a ↦ b`
+autoImplicit = false
+
+[[require]]
+name = "mathlib"
+scope = "leanprover-community"
+
+[[lean_lib]]
+name = "E8"
+srcDir = "."
+globs = ["E8", "E8.+"]
+
+[[lean_exe]]
+name = "e8thetacheck"
+root = "Main"
