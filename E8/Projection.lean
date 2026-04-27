@@ -51,4 +51,24 @@ theorem P_phi_scaling (x : Fin 8 → ℝ) :
     P.mulVec (phi • x) = phi • (P.mulVec x) := by
   simp [Matrix.mulVec_smul]
 
+/-- The origin maps to the origin. Sanity lemma. -/
+theorem origin_is_fixed_point : projectedNormSq (fun _ => 0) = 0 := by
+  have hzero : P.mulVec (fun _ => 0 : Fin 8 → ℝ) = 0 := Matrix.mulVec_zero P
+  unfold projectedNormSq project
+  simp [hzero]
+
+/-- Squared 2-norm of row 0 of `P`: `1 + φ² = 2 + φ`. -/
+theorem P_row0_normSq : (1 : ℝ) ^ 2 + phi ^ 2 = 2 + phi := by
+  have h := phi_sq
+  linarith
+
+/-- Squared 2-norm of row 1 of `P`: same as row 0. -/
+theorem P_row1_normSq : (1 : ℝ) ^ 2 + phi ^ 2 = 2 + phi := P_row0_normSq
+
+/-- Squared 2-norm of row 2 of `P`: `1 + φ² + φ⁴ = 4(φ + 1) = 4 φ²`.
+Uses the fact that `φ² = φ + 1` twice. -/
+theorem P_row2_normSq : (1 : ℝ) ^ 2 + phi ^ 2 + (phi ^ 2) ^ 2 = 4 * (phi + 1) := by
+  have h := phi_sq
+  nlinarith [h]
+
 end E8
