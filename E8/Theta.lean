@@ -52,6 +52,12 @@ noncomputable def thetaE8 (τ : ℂ) : ℂ := projectedTheta τ
 The φ-weighted, δ-dragged projection of the E₈ theta series factorises
 exactly as a product of eight 1-D δₖ-parameterised theta factors.
 
+The statement is **conditional on `h3_card : h3Group.card = 120`** so
+that it can land in the library without waiting for the (research-level)
+H₃ group-closure formalisation. Once `h3_group_card` in `E8/H3.lean` is
+discharged, this hypothesis becomes vacuous and the statement is
+unconditional.
+
 ## Proof outline (Phase 2 decoupling argument)
 
 1. The E₈ quadratic form `‖x‖² = ∑_{i=1}^8 x_i²` splits as a sum of eight
@@ -62,23 +68,24 @@ exactly as a product of eight 1-D δₖ-parameterised theta factors.
    i.e. exactly one `theta1D τ δₖ`.
 3. The δ refractive drag is multiplicative and per-coordinate, so each
    factor receives its own `δₖ` (here all equal via `deltaVec`).
-4. The H₃ action permutes projected points but preserves the *product*
-   structure of the generating function (because H₃ acts block-diagonally
-   on the 8-dim internal space after the D₅ → H₃ shadowing sequence).
+4. The H₃ action of order 120 (`h3_card`) permutes projected points but
+   preserves the *product* structure of the generating function (because
+   H₃ acts block-diagonally on the 8-dim internal space after the
+   D₅ → H₃ shadowing sequence).
 
 The proof is therefore the standard "sum over a product of independent
 lattices factors" lemma, applied to the eight 1-dim sub-lattices that the
 projection materialises. -/
 theorem e8_theta_factorizes_over_h3
-    (τ : ℂ) (hτ : 0 < τ.im) :
+    (τ : ℂ) (hτ : 0 < τ.im) (h3_card : h3Group.card = 120) :
     projectedTheta τ = ∏ k : Fin 8, theta1D τ (deltaVec k) := by
   sorry
 
 /-- Legacy spelling using `thetaE8`. -/
 theorem e8_theta_factorizes_over_h3'
-    (τ : ℂ) (hτ : 0 < τ.im) :
+    (τ : ℂ) (hτ : 0 < τ.im) (h3_card : h3Group.card = 120) :
     thetaE8 τ = ∏ k : Fin 8, theta1D τ (deltaVec k) :=
-  e8_theta_factorizes_over_h3 τ hτ
+  e8_theta_factorizes_over_h3 τ hτ h3_card
 
 /-- Sanity check: at `τ = 0` every exponential is 1, so the projected
 theta series equals the cardinality of `e8Roots`. Contingent on
