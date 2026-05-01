@@ -243,8 +243,22 @@ noncomputable def projectedRoots : Finset (Fin 3 → ℝ) := e8Roots.image proje
 /-- The orbits of the projected E₈ roots under H₃ all have icosahedral size.
 
 This is the Phase 1 numerical observation lifted to a Lean statement;
-the proof is the central representation-theoretic content of Phase 3. -/
+the proof is the central representation-theoretic content of Phase 3.
+
+## Dependencies
+
+The statement is **conditional on `h3_card : h3Group.card = 120`** so
+that orbit sizes can be constrained via orbit–stabiliser to divisors of
+`120`. Restricting further to the icosahedral set `{12, 20, 30, 60, 120}`
+requires analysing the stabilisers of the projected E₈ roots: a generic
+projected root has trivial stabiliser (orbit size = 120), while points
+on the rotation axes pick up smaller stabilisers (orbit sizes 60, 30,
+20, 12).
+
+When `h3_group_card` in this file is eventually discharged, the
+hypothesis becomes vacuous and the statement is unconditional. -/
 theorem orbit_sizes_are_icosahedral
+    (h3_card : h3Group.card = 120)
     (o : Finset (Fin 3 → ℝ))
     (ho : ∃ p ∈ projectedRoots, o = orbitOf p) :
     o.card = 12 ∨ o.card = 20 ∨ o.card = 30 ∨ o.card = 60 ∨ o.card = 120 := by
