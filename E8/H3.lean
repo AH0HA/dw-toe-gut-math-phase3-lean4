@@ -126,6 +126,36 @@ theorem h3Rot3_cubed : h3Rot3 * h3Rot3 * h3Rot3 = (1 : Matrix (Fin 3) (Fin 3) �
   ext i j
   fin_cases i <;> fin_cases j <;> simp <;> nlinarith [h]
 
+/-- `h3Rot2` rewritten in `!![…]` form, for use with `Matrix.mul_fin_three`. -/
+private lemma h3Rot2_eq_matrix :
+    h3Rot2 = !![(1 : ℝ), 0, 0; 0, -1, 0; 0, 0, -1] := by
+  unfold h3Rot2
+  ext i j
+  fin_cases i <;> fin_cases j <;> simp [Matrix.diagonal]
+
+/-- Explicit form of `h3Rot2 * h3Rot3`. Stepping stone. -/
+private lemma h3Rot2_mul_h3Rot3_form :
+    h3Rot2 * h3Rot3 =
+      !![(-1 : ℝ)/2, -Real.sqrt 3 / 2, 0;
+         -Real.sqrt 3 / 2, (1 : ℝ)/2, 0;
+         0, 0, -1] := by
+  rw [h3Rot2_eq_matrix]
+  unfold h3Rot3
+  rw [Matrix.mul_fin_three]
+  ext i j
+  fin_cases i <;> fin_cases j <;> simp <;> ring
+
+/-- `(h3Rot2 · h3Rot3)² = I`. The product of the 180° x-axis rotation with
+the 120° z-axis rotation has trace `-1` and determinant `+1`, hence is a
+180° rotation about some axis — order 2. -/
+theorem h3Rot2_mul_h3Rot3_sq :
+    (h3Rot2 * h3Rot3) * (h3Rot2 * h3Rot3) = (1 : Matrix (Fin 3) (Fin 3) ℝ) := by
+  rw [h3Rot2_mul_h3Rot3_form]
+  rw [Matrix.mul_fin_three, Matrix.one_fin_three]
+  have h := sqrt3_mul_self
+  ext i j
+  fin_cases i <;> fin_cases j <;> simp <;> nlinarith [h]
+
 /-- The H₃ group as a finite subset of GL₃(ℝ). Built as the closure of
 `h3Gens` under matrix multiplication. -/
 noncomputable def h3Group : Finset (Matrix (Fin 3) (Fin 3) ℝ) := sorry
