@@ -56,6 +56,32 @@ on a single CPU). To run it: `lake build e8thetacheck && ./.lake/build/bin/e8the
 | `E8/H3.lean`     | `orbit_sizes_are_icosahedral` for orbits in `projectedRoots`.                         |
 | `E8/Theta.lean`  | `e8_theta_factorizes_over_h3` — the central factorization theorem.                    |
 
+### Towards the H₃ obligations: power relations proved
+
+Four of the seven generating Coxeter-style relations are now proved
+end-to-end (no `sorry`):
+
+```
+h3Inv_sq               : h3Inv * h3Inv = 1                    -- order 2
+h3Rot2_sq              : h3Rot2 * h3Rot2 = 1                  -- order 2
+h3Rot3_cubed           : h3Rot3 * h3Rot3 * h3Rot3 = 1         -- order 3
+h3Rot2_mul_h3Rot3_sq   : (h3Rot2 * h3Rot3)² = 1               -- order 2
+```
+
+Plus the scalar inputs needed for the remaining h3Rot5 relations:
+
+```
+cos_two_pi_div_five    : cos(2π/5) = (√5 − 1) / 4
+sin_two_pi_div_five_sq : sin(2π/5)² = (10 + 2√5) / 16
+uy_sq_add_uz_sq        : (1/√(2+φ))² + (φ/√(2+φ))² = 1
+```
+
+The remaining matrix-level relations (`h3Rot5^5 = 1`,
+`(h3Rot2·h3Rot5)^? = 1`, `(h3Rot3·h3Rot5)^? = 1`) are tractable in
+principle via either Cayley–Hamilton or conjugation to a z-axis
+rotation; both are multi-day formalisation efforts. See
+`NEXT_SESSION.md` for the recommended path and pitfalls.
+
 **`E8/Basic.lean` is sorry-free.** Both cardinality theorems
 
 ```
