@@ -100,6 +100,32 @@ theorem h3Rot2_sq : h3Rot2 * h3Rot2 = (1 : Matrix (Fin 3) (Fin 3) ℝ) := by
     fin_cases i <;> simp
   rw [h, Matrix.diagonal_one]
 
+/-- `(√3)² = 3`. Helper for the order-3 matrix relation. -/
+private lemma sqrt3_mul_self : Real.sqrt 3 * Real.sqrt 3 = 3 :=
+  Real.mul_self_sqrt (by norm_num)
+
+/-- `(h3Rot3)² = !![-1/2, √3/2, 0; -√3/2, -1/2, 0; 0, 0, 1]`,
+i.e. the 240° rotation. Stepping stone to `h3Rot3_cubed`. -/
+theorem h3Rot3_sq_form :
+    h3Rot3 * h3Rot3 =
+      !![(-1 : ℝ)/2, Real.sqrt 3 / 2, 0;
+         -Real.sqrt 3 / 2, (-1 : ℝ)/2, 0;
+         0, 0, 1] := by
+  unfold h3Rot3
+  rw [Matrix.mul_fin_three]
+  have h := sqrt3_mul_self
+  ext i j
+  fin_cases i <;> fin_cases j <;> simp <;> nlinarith [h]
+
+/-- `(h3Rot3)³ = I`. The 120° rotation about the z-axis has order 3. -/
+theorem h3Rot3_cubed : h3Rot3 * h3Rot3 * h3Rot3 = (1 : Matrix (Fin 3) (Fin 3) ℝ) := by
+  rw [h3Rot3_sq_form]
+  unfold h3Rot3
+  rw [Matrix.mul_fin_three, Matrix.one_fin_three]
+  have h := sqrt3_mul_self
+  ext i j
+  fin_cases i <;> fin_cases j <;> simp <;> nlinarith [h]
+
 /-- The H₃ group as a finite subset of GL₃(ℝ). Built as the closure of
 `h3Gens` under matrix multiplication. -/
 noncomputable def h3Group : Finset (Matrix (Fin 3) (Fin 3) ℝ) := sorry
