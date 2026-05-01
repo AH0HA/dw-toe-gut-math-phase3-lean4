@@ -156,6 +156,36 @@ theorem h3Rot2_mul_h3Rot3_sq :
   ext i j
   fin_cases i <;> fin_cases j <;> simp <;> nlinarith [h]
 
+/-! ## Order-5 trig identities
+
+Closed-form values of `cos(2π/5)` and `sin(2π/5)²`. Both derive from
+`Real.cos_pi_div_five : cos(π/5) = (1 + √5)/4` via `cos_two_mul` and
+`sin² + cos² = 1`. These are the scalar inputs needed for the
+`h3Rot5^5 = 1` matrix proof. -/
+
+private lemma sqrt5_mul_self : Real.sqrt 5 * Real.sqrt 5 = 5 :=
+  Real.mul_self_sqrt (by norm_num)
+
+private lemma sqrt5_sq : Real.sqrt 5 ^ 2 = 5 := by
+  rw [sq]; exact sqrt5_mul_self
+
+/-- `cos(2π/5) = (√5 − 1) / 4`. Derives from `cos(π/5) = (1+√5)/4` via the
+double-angle formula `cos(2x) = 2 cos²(x) − 1`. -/
+theorem cos_two_pi_div_five : Real.cos (2 * Real.pi / 5) = (Real.sqrt 5 - 1) / 4 := by
+  have h1 : (2 * Real.pi / 5 : ℝ) = 2 * (Real.pi / 5) := by ring
+  rw [h1, Real.cos_two_mul, Real.cos_pi_div_five]
+  have h := sqrt5_sq
+  nlinarith [h]
+
+/-- `sin(2π/5)² = (10 + 2√5) / 16`. Derives from `sin² + cos² = 1` and
+the closed form for `cos(2π/5)`. -/
+theorem sin_two_pi_div_five_sq :
+    Real.sin (2 * Real.pi / 5) ^ 2 = (10 + 2 * Real.sqrt 5) / 16 := by
+  have hpyth := Real.sin_sq_add_cos_sq (2 * Real.pi / 5)
+  rw [cos_two_pi_div_five] at hpyth
+  have h := sqrt5_sq
+  nlinarith [hpyth, h]
+
 /-- The H₃ group as a finite subset of GL₃(ℝ). Built as the closure of
 `h3Gens` under matrix multiplication. -/
 noncomputable def h3Group : Finset (Matrix (Fin 3) (Fin 3) ℝ) := sorry
