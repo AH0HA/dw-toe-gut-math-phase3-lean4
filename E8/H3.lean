@@ -186,6 +186,35 @@ theorem sin_two_pi_div_five_sq :
   have h := sqrt5_sq
   nlinarith [hpyth, h]
 
+/-! ## Unit-axis identity for h3Rot5
+
+The icosahedral 5-fold axis `(0, 1, φ)` has squared length `1 + φ² = 2 + φ`,
+so the unit-axis components `uy = 1/√(2+φ)` and `uz = φ/√(2+φ)` satisfy
+`uy² + uz² = 1`. -/
+
+private lemma two_plus_phi_pos : 0 < 2 + phi := by
+  unfold phi
+  have hsqrt5 : 0 ≤ Real.sqrt 5 := Real.sqrt_nonneg _
+  linarith
+
+private lemma sq_sqrt_two_plus_phi : Real.sqrt (2 + phi) ^ 2 = 2 + phi :=
+  Real.sq_sqrt two_plus_phi_pos.le
+
+private lemma sqrt_two_plus_phi_ne_zero : Real.sqrt (2 + phi) ≠ 0 := by
+  intro h
+  have := Real.sqrt_eq_zero'.mp h
+  linarith [two_plus_phi_pos]
+
+/-- For the icosahedral axis `(0, 1, φ)`, `uy² + uz² = 1`. -/
+private lemma uy_sq_add_uz_sq :
+    (1 / Real.sqrt (2 + phi)) ^ 2 +
+    (phi / Real.sqrt (2 + phi)) ^ 2 = 1 := by
+  have hne := sqrt_two_plus_phi_ne_zero
+  have hsq := sq_sqrt_two_plus_phi
+  have hphi := phi_sq
+  field_simp
+  nlinarith [hsq, hphi]
+
 /-- The H₃ group as a finite subset of GL₃(ℝ). Built as the closure of
 `h3Gens` under matrix multiplication. -/
 noncomputable def h3Group : Finset (Matrix (Fin 3) (Fin 3) ℝ) := sorry
