@@ -35,11 +35,9 @@ open Classical Matrix
 
 namespace E8
 
-/-- 180° rotation about the x-axis. `det = +1`. -/
+/-- 180° rotation about the x-axis: `diag(1, -1, -1)`. `det = +1`. -/
 noncomputable def h3Rot2 : Matrix (Fin 3) (Fin 3) ℝ :=
-  !![1,  0,  0;
-     0, -1,  0;
-     0,  0, -1]
+  Matrix.diagonal ![1, -1, -1]
 
 /-- 120° (= 2π/3) rotation about the z-axis. `det = +1`. -/
 noncomputable def h3Rot3 : Matrix (Fin 3) (Fin 3) ℝ :=
@@ -63,12 +61,9 @@ noncomputable def h3Rot5 : Matrix (Fin 3) (Fin 3) ℝ :=
      uz * s,    c + (1 - c) * uy ^ 2,         (1 - c) * uy * uz;
      -uy * s,   (1 - c) * uy * uz,            c + (1 - c) * uz ^ 2]
 
-/-- Central inversion. `det = -1`. Required to lift the rotation
+/-- Central inversion `-I`. `det = -1`. Required to lift the rotation
 subgroup of order 60 to the full H₃ of order 120. -/
-def h3Inv : Matrix (Fin 3) (Fin 3) ℝ :=
-  !![(-1 : ℝ), 0, 0;
-     0, -1, 0;
-     0, 0, -1]
+def h3Inv : Matrix (Fin 3) (Fin 3) ℝ := -1
 
 /-- Backwards-compatible aliases under the names used elsewhere in the
 skeleton. The first three are the rotation generators; `h3Inv` is now
@@ -80,6 +75,30 @@ noncomputable def h3Gen3 : Matrix (Fin 3) (Fin 3) ℝ := h3Rot5
 /-- The four generators of H₃: three rotations plus inversion. -/
 noncomputable def h3Gens : Finset (Matrix (Fin 3) (Fin 3) ℝ) :=
   {h3Rot2, h3Rot3, h3Rot5, h3Inv}
+
+/-! ## Order-2 power relations
+
+These are the easiest matrix-power identities in the Coxeter
+presentation of H₃. They are the first concrete steps of the multi-week
+work-stream that closes `h3_group_card = 120`.
+
+The proofs use mathlib's `Matrix.mul_fin_three` and `Matrix.one_fin_three`
+to reduce the question to scalar arithmetic over ℝ. -/
+
+/-- `h3Inv = -I`, so `h3Inv * h3Inv = (-1) * (-1) = 1` in the matrix ring. -/
+theorem h3Inv_sq : h3Inv * h3Inv = (1 : Matrix (Fin 3) (Fin 3) ℝ) := by
+  show (-1 : Matrix (Fin 3) (Fin 3) ℝ) * (-1) = 1
+  rw [neg_mul_neg, mul_one]
+
+/-- `h3Rot2 = diag(1, -1, -1)`, so `h3Rot2 * h3Rot2 = diag(1, 1, 1) = 1`. -/
+theorem h3Rot2_sq : h3Rot2 * h3Rot2 = (1 : Matrix (Fin 3) (Fin 3) ℝ) := by
+  show Matrix.diagonal ![1, -1, -1] * Matrix.diagonal ![1, -1, -1] = 1
+  rw [Matrix.diagonal_mul_diagonal]
+  have h : (fun i : Fin 3 => (![(1 : ℝ), -1, -1] : Fin 3 → ℝ) i *
+                              (![(1 : ℝ), -1, -1] : Fin 3 → ℝ) i) = fun _ => 1 := by
+    funext i
+    fin_cases i <;> simp
+  rw [h, Matrix.diagonal_one]
 
 /-- The H₃ group as a finite subset of GL₃(ℝ). Built as the closure of
 `h3Gens` under matrix multiplication. -/
