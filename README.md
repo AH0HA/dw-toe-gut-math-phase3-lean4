@@ -1,5 +1,13 @@
 # E8ThetaFactorization
 
+**Status:** Phase 3 v1 — `lake build E8` is green; 6 `sorry`s remain,
+all genuine mathematical content (no syntactic accidents). The
+combinatorial side (`E8/Basic.lean`, `E8/Projection.lean`) is
+sorry-free. The remaining work concentrates in the H₃ group-closure
+formalisation; the central factorisation theorem and the orbit-size
+theorem are stated **conditionally on `h3Group.card = 120`** so they
+land cleanly without waiting for that deep obligation.
+
 Lean 4 / mathlib4 formalization scaffold for the **Phase 3** conjecture:
 
 > Under the φ-weighted, δ-dragged projection ℝ⁸ → ℝ³ that realizes the
@@ -126,22 +134,25 @@ group H₃ of order 120.
   require either (a) Mathlib's `CoxeterGroup` machinery, (b) explicit
   matrix-group enumeration with ℝ-equality discharged via algebraic
   identities for `cos(2π/5)`, `√3`, `√(2+φ)`, or (c) construction of an
-  isomorphism with a known group of order 120. Days–weeks of work.
+  isomorphism with a known group of order 120.
 * **Hard** (representation theory): `e8_theta_factorizes_over_h3`. The
   central conjecture; needs the Phase-2 decoupling argument formalised
   end-to-end.
 
-## Suggested order of attack
+Note that mathlib **does** define the abstract Coxeter matrix
+`CoxeterMatrix.H₃` and a corresponding presented group
+`CoxeterMatrix.Group`, but it does *not* prove finiteness or
+cardinality 120 (the file explicitly states this is left unproven).
+There is no quaternion-to-rotation-matrix bridge either. So mathlib's
+existing Coxeter / orthogonal-group infrastructure does not directly
+discharge the obligation; a new construction (matrix enumeration or
+isomorphism with `alternatingGroup (Fin 5) × ZMod 2`) is required.
 
-1. Replace the placeholder `e8Roots` in `E8/Basic.lean` with the explicit
-   list from the Phase 1 Python script (112 D-type + 128 spinor roots),
-   then `e8_card` and `d5_has_40_roots` follow by `decide` / `rfl`.
-2. Tighten `P` in `E8/Projection.lean` so its rows are unit vectors and
-   prove its kernel is the D₅ sublattice. The numerics in Phase 1 give
-   the exact entries.
-3. Fill in the H₃ generators in `E8/H3.lean`; build `h3Group` by iterated
-   closure of `h3Gens` until the size stabilises (Phase 1 confirms
-   stabilisation at 120 elements).
+To minimise blocking, the central theorem
+`e8_theta_factorizes_over_h3` and the orbit-size theorem
+`orbit_sizes_are_icosahedral` are stated **conditionally** on
+`h3_card : h3Group.card = 120`. When that lemma is eventually
+discharged, both downstream theorems become unconditional.
 4. Prove `e8_theta_factorizes_over_h3` using the representation-theoretic
    decoupling from Phase 2: the eight E₈ coordinates are independent under
    the H₃-equivariant projection, so the sum splits into a product.
