@@ -45,9 +45,15 @@ each file here expands into full prose without structural change.
 
 ## Open editorial items
 
-1. Full-manuscript expansion pass (blocked on upload of complete v1 text).
-2. Ch. 33: source the "1,512" count or it stays removed.
-3. Ch. 37 §V: author to confirm the f₀ := resting-heart-rate definition
-   matches intent (Ch. 34 note).
-4. Figures: v1's figure list carries over; new figures needed for the
-   icosian descent (Ch. 29) and the two-mirror diagram (Ch. 7/14).
+1. Full-manuscript expansion pass — **unblocked**: complete v1 text is in
+   `../book-v1-archive/`; findings and inventory in `RECONCILIATION.md`.
+2. ~~Ch. 33: source the "1,512" count~~ — resolved: full text confirms
+   no derivation exists; stays removed (`RECONCILIATION.md`).
+3. ~~Ch. 37 §V: confirm f₀ definition~~ — resolved: v1 defines
+   f₀ = cardiac fundamental ≈ 1.17 Hz (70 bpm), f₀/φ⁵ = 0.106 Hz.
+4. Figures: v1's figures live only in the archived PDFs; carry over at
+   layout time. New figures needed for the icosian descent (Ch. 29) and
+   the two-mirror diagram (Ch. 7/14).
+5. New (from full text): check Axiom 4's claim that a φ-self-similar
+   density profile yields a 1/r² quantum-potential gradient — a finite,
+   committable calculation (verification queue).

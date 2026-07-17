@@ -46,13 +46,12 @@ axis breathing (6+), heart-and-space meditation (10+). Two upgrades:
   with a real clinical literature. Phase 1 of the practice works for
   reasons physiology already accepts. The framework's *additional*
   claims ride on top and are tested in Chapter 30.
-- **The f₀ definition [fixing an ambiguity]:** where the framework
-  writes the practice frequency as f₀/φ⁵, v2 defines f₀ := resting
-  cardiac frequency ≈ 1.1 Hz (66 bpm), giving 1.1/φ⁵ ≈ 1.1/11.09 ≈
-  0.099 Hz ≈ 0.1 Hz. The φ-ladder reading of this near-coincidence is
-  [I]; the number now has a definition instead of a shrug — undefined
-  symbols are how Chapter 5's δ went wrong, and it does not happen
-  twice.
+- **The f₀ definition [confirmed from the v1 full text]:** the book
+  defines f₀ as the cardiac fundamental ≈ 1.17 Hz (70 bpm), and works
+  the ladder explicitly: f₀/φ⁵ = 0.106 Hz ≈ 0.1 Hz (Fig. 34.1). The
+  φ-ladder reading of this near-coincidence is [I]; the symbol has a
+  definition, which is what v2 requires — undefined symbols are how
+  Chapter 5's δ went wrong.
 
 ## Chapter 35: Practical Coherence Technology (carries over, tagged)
 
