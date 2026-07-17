@@ -77,6 +77,10 @@ E8/                        Lean 4 formalization (Basic/Projection sorry-free;
 THETA_STATEMENT_AUDIT.md   Cusp-value refutation of the old Lean statement
 gemini-code-*.md           Condensed book text (16 files; notation degraded:
                            "Es"=E₈, "o"=φ, "8"=δ; two files are duplicates)
+book-v2/                   The re-founded edition (chapter-by-chapter rewrite
+                           executing the impact map; register-tagged; each
+                           chapter ends with "What This Lets Us Build"; README
+                           for file map, renumbering, and open editorial items)
 re-work-axiom-07162026/    The re-foundation (START HERE):
   AXIOMS_V2.md               six axioms restated in three registers
   CENTRAL_EQUATION.md        Theorem 0 + icosian replacement + verify plan
