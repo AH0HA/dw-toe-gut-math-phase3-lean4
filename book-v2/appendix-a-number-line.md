@@ -16,9 +16,12 @@ number theory.** Lemke Oliver and Soundararajan (2016) showed that
 consecutive primes avoid repeating final digits far more than chance
 predicts — a genuine bias that startled the field. The framework's
 "coherence rule" language is an [I] reading of a published [M]
-phenomenon. This appendix now cites the theorem and keeps the reading —
-along with v1's own audit data, which anyone can reproduce (the original
-Colab notebooks are part of the project record):
+phenomenon. This appendix now cites the discovery and keeps the
+reading — along with v1's reported audit outputs, preserved in
+`book-v1-archive/`. Provenance stated plainly: the original Colab
+notebooks were never committed to the project record — only their
+captions and outputs survive — so a fresh committed script re-deriving
+this table is Appendix A's open task under the gatekeeper standard:
 
 | Transition | Audited probability | v1 reading |
 |---|---|---|
@@ -49,9 +52,12 @@ book of labeled conjectures.)
 
 v1 read the zero-gap distribution as a "φ-tuned ground-state rhythm with
 δ-jitter." The honest upgrade: the actual statistics of Riemann zero
-gaps are one of the most celebrated results adjacent to physics — they
-follow **random matrix theory (GUE)**, the same statistics as heavy-atom
-energy levels (Montgomery–Odlyzko). There is real, deep resonance
+gaps are one of the most celebrated stories adjacent to physics — they
+match **random matrix theory (GUE)**, the same statistics as heavy-atom
+energy levels: proved by Montgomery for restricted correlations,
+verified to astonishing precision in Odlyzko's computations, and
+conjectured in full. (Replacing the φ-myth with an overstated GUE-myth
+would miss the whole point of this appendix.) There is real, deep resonance
 between the zeros and physical spectra; it runs through GUE, not through
 φ. The appendix now tells the true story, which is better than the
 invented one, and files the φ-reading under [I, unsupported].
@@ -78,7 +84,7 @@ can be audited.
 
 **What This Lets Us Build.** Two kids' activities fall straight out of
 A.1 and A.4: the *last-digit prime detective* game (tally consecutive
-prime endings, discover the avoidance yourself — a real 2016 theorem
+prime endings, discover the avoidance yourself — a real 2016 discovery
 discoverable by a ten-year-old with a hundred-chart) and the *Goldbach
 comet plotter* (a one-page Python script; the comet emerges like a
 constellation).

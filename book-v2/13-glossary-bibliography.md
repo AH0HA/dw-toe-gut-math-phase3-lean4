@@ -99,7 +99,9 @@ incarnation via the Galois mirror.
   genuine E₈ → H₄ construction the v1 projection gestured at.
 - Lemke Oliver, R., & Soundararajan, K. (2016). "Unexpected biases in
   the distribution of consecutive primes." *PNAS* 113(31), E4446–E4454.
-  — The real theorem behind Appendix A.1.
+  — The real discovery behind Appendix A.1: the bias is empirical and
+  robust; its explanation is conditional on the Hardy–Littlewood
+  k-tuple conjecture.
 - Montgomery, H. / Odlyzko, A. — the pair-correlation and numerical work
   identifying GUE statistics in Riemann zero spacings (Appendix A.3).
 - Scheffer, M., et al. (2009). "Early-warning signals for critical
@@ -153,7 +155,9 @@ incarnation via the Galois mirror.
 - `re-work-axiom-07162026/` — the July 2026 re-foundation: restated
   axioms, Theorem 0 and the icosian central equation, the numerical
   audit with committed code, and the blinded experiment designs. Every
-  number in this book traces to `audit.py` in that directory or to a
-  cited external source.
+  number in this book traces to `audit.py` in that directory, to a
+  cited external source, or to v1's archived audit outputs (Appendix
+  A) — the last category explicitly flagged for re-derivation under the
+  gatekeeper standard.
 - `book-v1-archive/` — the complete first edition, preserved unedited,
   wrecks and all, per the flight-museum policy of Chapter 5.

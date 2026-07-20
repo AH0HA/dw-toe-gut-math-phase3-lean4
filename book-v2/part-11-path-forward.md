@@ -55,10 +55,13 @@ being the mirror's. Whether that is physics or only beauty, Chapter 30
 exists to find out.
 
 **What This Lets Us Build.** The verification pipeline itself: exact
-golden-integer arithmetic, icosian enumeration, coefficient tables — all
-committed, all re-runnable, the honest Phase 1. In Lean 4, C1 is the
-first formalization target (`E8/Theta.lean` is restated, not "proved,"
-until then).
+golden-integer arithmetic, icosian enumeration, coefficient tables —
+each step committed as it lands, re-runnable by anyone, the honest
+Phase 1. In Lean 4, C1 is the first formalization target. (Full
+disclosure of current state: `E8/Theta.lean` still carries the refuted
+v1 statement behind a `sorry`; per the verification plan it gets
+*restated* — not proved — once the numeric checks land. The book does
+not claim work that hasn't happened; that is rather the point of it.)
 
 ---
 

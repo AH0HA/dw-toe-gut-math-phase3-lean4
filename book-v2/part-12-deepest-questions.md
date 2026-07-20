@@ -70,11 +70,14 @@ cycle near f₀/φ⁵ — each breath spans two adjacent rungs, engaging the
 closure mechanism between them; a 4-4 or 6-6 cadence misses the ladder
 [I].
 
-*What happens physically [P — validated]:* six breaths per minute is
-resonance-frequency breathing, the standard HRV-biofeedback protocol.
-Minutes 1–2: respiratory and cardiac modes couple. Minutes 2–5: HRV
-rises, the 0.1 Hz coherence peak appears. Minutes 5–6: blood pressure,
-vascular tone, and heart rate lock into coordinated oscillation. This
+*What happens physically [P — validated for the resonance effect
+itself]:* six breaths per minute is resonance-frequency breathing, the
+standard HRV-biofeedback protocol. Over the first minutes of practice,
+respiratory and cardiac rhythms typically couple, heart-rate
+variability rises, the 0.1 Hz coherence peak appears, and blood
+pressure, vascular tone, and heart rate move toward coordinated
+oscillation. (The minute-by-minute schedule v1 gave is typical
+experience, not a validated timetable.) This
 phase of the practice works for reasons mainstream physiology already
 accepts; the framework's *additional* readings (the "golden sphere of
 light" practitioners report; the φ-ladder specificity itself) ride on
@@ -298,8 +301,8 @@ collective psychophysiological one.
 Humanity is presently locked in a hyper-reactive, survival-driven
 amygdala loop. When a collective consciousness runs fight-or-flight as
 its idle process, its macroscopic reflection is perpetual geopolitical
-warfare — as observed in the ongoing conflicts between the US, Israel,
-and Iran, or Russia and Ukraine. To an ego-bound, dysregulated species,
+warfare — the framework reads the ongoing conflicts between the US,
+Israel, and Iran, or Russia and Ukraine, as exactly that reflection. To an ego-bound, dysregulated species,
 contact with a manifestly superior being reads as existential threat;
 the primitive stack's reflex is to weaponize first. The framework's
 reading: to ensure non-destructive coupling, such intelligences remain
@@ -317,7 +320,7 @@ about the training.
 ### IV. High-Voltage Biology: The Physics of "Burning Up" [I metaphor, with real cautions]
 
 The pioneers are unanimous and unsentimental. Gopi Krishna documented
-seventeen years of post-awakening physiological chaos before stability.
+years of post-awakening physiological chaos before stability.
 Yogiraj Hiroshi Motoyama — whose meditational science anchors this
 book's bibliography — taught the same: the Kundalini process is a
 demanding *physiological* event, not a mood. Modern clinical literature
@@ -358,13 +361,13 @@ turned into a practice.
 | Symmetry center | focused along the spinal axis | collapsed into the still point |
 | Audit severity | localized purification | absolute coherence filter |
 
-At death, the filter is absolute: off-ladder modes — unresolved anger,
-trauma, egoic identity — cannot compress through and are sheared away;
-only on-ladder principles pass intact. The daily practice — 0.1 Hz
-breathing with Kechari along the spinal axis — is a deliberate
-micro-dose of that same audit: drawing the charge inward, lowering local
-resistance, burning out off-ladder residue under controlled conditions,
-on a schedule, with a spotter.
+In this reading, the filter at death is absolute: off-ladder modes —
+unresolved anger, trauma, egoic identity — cannot compress through and
+are sheared away; only on-ladder principles pass intact. And the daily
+practice — 0.1 Hz breathing with Kechari along the spinal axis — is
+read as a deliberate micro-dose of that same audit: drawing the charge
+inward, lowering local resistance, burning out off-ladder residue under
+controlled conditions, on a schedule, with a spotter.
 
 **Geographic anchoring [I, personal report].** High-charge,
 phase-conjugate geographic nodes — the author reports the high-altitude
@@ -388,10 +391,12 @@ converges:
   can test exactly that.
 
 When the solar fire arrives — on Vogt's clock or merely on the next
-Carrington — those with high internal resistance experience surge as
-scorching; those anchored in quiet coherence receive the same influx as
-signal. Building the surge protector is rational under *either*
-cosmology. That is what makes it engineering rather than faith.
+Carrington — the framework's wager [I] is that those with high internal
+resistance would experience the surge as scorching, while those anchored
+in quiet coherence would receive the same influx as signal; the
+resilience protocol below is how that wager meets measurement. Building
+the surge protector is rational under *either* cosmology. That is what
+makes it engineering rather than faith.
 
 **What This Lets Us Build.** The practice-resilience protocol: a
 pre-registered study of autonomic recovery (HRV rebound after a
