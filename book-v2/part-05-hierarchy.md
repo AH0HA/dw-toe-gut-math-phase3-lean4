@@ -38,7 +38,7 @@ its own register:
 
 **The Heart — Axiom 5 organ: the coherence anchor.** The heart generates
 the body's strongest electromagnetic field — roughly 100× the brain's
-amplitude [P — standard magnetocardiography]. The cardiac rhythm
+amplitude electrically (ECG vs. EEG) [P — standard electrophysiology]. The cardiac rhythm
 (~1–1.5 Hz) is the fundamental of the biological φ-ladder [I]; the
 intrinsic cardiac nervous system holds ~40,000 neurons [P]. The
 framework reads the heart as the organ most directly coupled to the
@@ -266,7 +266,7 @@ operates at the physical level; the higher-self state (Chapter 13) is
 awareness shifted to the causal level, where templates and fluid time
 live; and the luminous geometry reported in deep meditation — mandalas,
 flowing sacred form — is direct perception of the astral level, the 120
-orientations of icosahedral symmetry experienced as light. The
+symmetries of the icosahedral group experienced as light. The
 traditions navigated this chain experientially for millennia; the
 framework offers a mathematical map of the same territory, and the
 convergence of the two maps is, for the framework, the strongest

@@ -6,13 +6,14 @@
 > maximal."
 
 Phase conjugation sends Ψ → Ψ*, reversing all velocity fields. A still
-point is where v = 0, meaning Ψ = Ψ* = √ρ₀: the order parameter purely
-real, the density maximal, the point the densest, most symmetric, most
-self-referencing location in the field [M — elementary fixed-point
-structure of the Axiom 1 medium].
+point is where v = 0 — equivalently, where the phase gradient vanishes
+and the order parameter is real up to a global phase [M — elementary
+fixed-point structure of the Axiom 1 medium].
 
-Its properties map onto features the traditions attribute to
-consciousness [I]: **self-reference** — every outgoing wave returns;
+The framework's portrait of that point — the densest, most symmetric,
+most self-referencing location in the field — and its mapping onto
+features the traditions attribute to consciousness are the declared
+reading [I]: **self-reference** — every outgoing wave returns;
 **temporal bilaterality** — at the still point Ψ = Ψ* and the arrow of
 time does not bite; **maximal information density**; and
 **irreducibility** — zero-dimensional, without internal structure. The

@@ -44,8 +44,9 @@ back to the village.
 Dan Winter warns that "people with unresolved emotions such as anger are
 in trouble." The framework's translation: anger spans the full
 biological φ-ladder, so unresolved anger is off-ladder noise across the
-entire spectrum simultaneously — degrading health, relationship,
-cognition, and contemplative access at once [I]. He adds that "the
+entire spectrum simultaneously — which the framework associates with
+degraded well-being, relationship, cognition, and contemplative access
+at once [I]. He adds that "the
 larger array takes no secrets": the planetary standing wave couples to
 your entire mode spectrum, including every off-ladder mode hidden from
 other humans; the friction is automatic and intensifies as coupling

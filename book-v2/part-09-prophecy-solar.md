@@ -4,10 +4,10 @@
 
 > "The lower path has corn; the upper path has 'System Errors'."
 
-The Hopi of northern Arizona — who have maintained their traditions
-without warfare for over a thousand years in one of Earth's harshest
-environments — describe a cyclical cosmology with striking structural
-parallels to Part VIII [I throughout, and offered with the added respect
+The Hopi of northern Arizona — who have sustained their traditions for
+over a thousand years in one of Earth's harshest environments —
+describe a cyclical cosmology with striking structural parallels to
+Part VIII [I throughout, and offered with the added respect
 v2 owes a living tradition: the prophecy belongs to the Hopi; the
 framework is a guest in it].
 
@@ -40,12 +40,13 @@ moment it breaks [I].
 **The cyclical pattern.** Four worlds, each developing, corrupting,
 being purified, giving way to the next — the sawtooth the framework
 predicts: growth → ceiling → fragmentation → regrowth from a higher
-baseline. v2 keeps v1's best sentence about why the Hopi would know:
-they learned the physics *empirically*, over millennia, in a desert
-where the margin between coherence and dissolution is razor-thin.
-Maintain your relationship to the land, your ceremonies, your community
-coherence — or die. Their prophecy is not mystical prediction but
-hard-won structural understanding of how systems survive their ceilings.
+baseline. And the framework offers its reading of why this knowledge
+would run so deep: a millennium in a desert where the margin between
+coherence and dissolution is razor-thin — maintain your relationship to
+the land, your ceremonies, your community coherence, or perish — is a
+long empirical education in how systems survive their ceilings. The
+prophecy can *also* be read as that hard-won structural understanding;
+the guest does not redefine the house, and both readings stand.
 
 ## Chapter 25: Solar Cycles and External Triggers
 
@@ -90,9 +91,9 @@ mode-spectrum perturbation of the planetary wave. Effects that could
 devastate a fragile civilization without physically implausible
 mechanics — because the vulnerability was internal all along.
 
-**The synthesis.** The Hopi are right that the transition is driven by
-internal dynamics. Vogt may be right that solar events have historically
-coincided with resets. The framework joins them: internal dynamics
+**The synthesis [I].** The Hopi tradition locates the driver internally,
+and the framework reads it the same way. Vogt may be right that solar
+events have historically coincided with resets. The framework joins them: internal dynamics
 determine vulnerability, the external trigger determines timing, and the
 coherence of the wave at the moment of transition determines the quality
 of what follows. Whether the trigger is internal, external, or both, the

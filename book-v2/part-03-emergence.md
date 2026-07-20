@@ -59,10 +59,11 @@ the first standing wave's internal dynamics produce a normal-fluid
 fraction: the normal component carries entropy, entropy production is
 irreversible, and before/after become distinguishable. The arrow appears
 only in the vicinity of excitations; far from any standing wave, the
-condensate remains timeless. v1 added: since δ ≈ α²/2√2, time's arrow is
-ultimately controlled by the electromagnetic coupling — a striking line
-that inherits Conjecture N1's status [M-conjecture]: as unexplained as
-the formula it leans on, and labeled with it.
+condensate remains timeless. v1 added: since δ := α²/(2√2), time's
+arrow is ultimately controlled by the electromagnetic coupling — a
+striking line retagged in v2 as [I, leaning on open Conjecture N1]: a
+framework reading layered on an unexplained formula, and labeled with
+both debts.
 
 **Level 4 — Gravity (The First Attraction) [P].** The standing wave's
 density enhancement creates a quantum-potential gradient in the
