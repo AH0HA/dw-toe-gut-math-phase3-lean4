@@ -16,14 +16,34 @@ number theory.** Lemke Oliver and Soundararajan (2016) showed that
 consecutive primes avoid repeating final digits far more than chance
 predicts — a genuine bias that startled the field. The framework's
 "coherence rule" language is an [I] reading of a published [M]
-phenomenon. This appendix now cites the theorem and keeps the reading.
+phenomenon. This appendix now cites the theorem and keeps the reading —
+along with v1's own audit data, which anyone can reproduce (the original
+Colab notebooks are part of the project record):
+
+| Transition | Audited probability | v1 reading |
+|---|---|---|
+| 1→1 | 18.998% | repelled — avoids redundant phase re-entry |
+| 3→3 | 18.446% | repelled |
+| 7→7 | 18.441% | repelled |
+| 9→9 | 18.997% | repelled |
+| 9→1 | 31.312% | the "golden bridge" — dominant decade-boundary leap |
+
+Identical-ending returns sit consistently below the naive 25%, and the
+9→1 transition dominates — the audit's numbers are real; the mainstream
+explanation runs through the Hardy–Littlewood k-tuple heuristics rather
+than through φ, and the appendix holds both readings side by side, one
+[M], one [I].
 
 ## A.2 Twin primes as still-points (formerly 38.3)
 
 A gap of 2 read as a phase-conjugate pair around a still point [I].
-Pure analogy, kept as such. (The twin prime conjecture itself remains
-one of mathematics' great open problems — good company for a book of
-labeled conjectures.)
+Pure analogy, kept as such, with v1's audit numbers preserved: 440,311
+twin pairs surveyed; the three permitted ending-orbits (1–3, 7–9, 9–1)
+occupied with near-perfect balance (33.35% / 33.37% / 33.28%). The
+balance is real and expected under standard heuristics; the still-point
+reading is the framework's [I]. (The twin prime conjecture itself
+remains one of mathematics' great open problems — good company for a
+book of labeled conjectures.)
 
 ## A.3 Riemann zero gaps (formerly 38.4)
 

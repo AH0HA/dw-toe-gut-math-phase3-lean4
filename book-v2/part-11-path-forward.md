@@ -79,18 +79,35 @@ makes results mean something: **blinding**. Full protocols live in
    specifically, not relaxation or ritual, carries the effect. A blinded
    win here is the single result that forces mainstream attention.
 2. **The three-arm resonator test.** φ vs. 3/2 vs. the plastic number ρ:
-   Q-factors and intermodulation under broadband drive. The ρ arm is the
-   theoretically sharp control Chapter 2 handed us — closure in general
-   versus nearest-rung closure in particular.
+   Q-factors, ring-down times, and intermodulation under broadband
+   drive. The ρ arm is the theoretically sharp control Chapter 2 handed
+   us — closure in general versus nearest-rung closure in particular.
+   (v1's envelope: under $10K, 3–6 months — still the cheapest new
+   science this book proposes.)
 3. **φ-driven BEC / quasicrystal coherence.** Literature-first: find
    where the framework's predictions *differ* from standard
-   photonic-quasicrystal theory; fund that difference.
+   photonic-quasicrystal theory; fund that difference. (v1 envelopes:
+   <$5K incremental for the BEC drive; $20–50K for quasicrystal
+   comparisons.)
 4. **EEG φ-ratio coherence, predictive version.** Specify the band pairs
    in advance, test on recordings not used to form the hypothesis —
    the anti-numerology clause. (Continuous spectra will hand you φ
-   ratios post hoc forever; only prediction counts.)
+   ratios post hoc forever; only prediction counts. v1 envelope: <$5K,
+   3 months.)
 5. **Paired-HRV synchrony** during shared 0.1 Hz practice (from Part
-   VII) — cheap, humane, and photogenic.
+   VII) — cheap, humane, and photogenic. (v1's fifth design, the
+   still-point fluctuation detector in nonlinear optics, remains on the
+   long list at $20–40K, behind the five above on
+   evidence-per-dollar.)
+
+v1's strategy line survives verbatim, because it was already the Wright
+Clause: *"Start with the φ-resonator. If it rings longer, build the
+rest."* And v1's resource envelope stays useful for planning: roughly
+$200–400K would have run its entire five-phase mathematical program —
+whose Phase 1 stopping rule ("a single clean numerical failure
+terminates the program early and cheaply") is precisely the discipline
+that, applied in July 2026, retired the old conjecture for the price of
+a determinant.
 
 **The stance [P].** Every design here can *fail*. That is the point.
 v1's experiments chapter proposed measurements; v2's proposes

@@ -17,7 +17,16 @@ icosahedron and dodecahedron — has at each vertex two triangles and two
 pentagons: face angles summing to 336°, an angular deficit of 24°, and a
 triangle-pentagon wedge of 168° standing to that deficit in the exact
 ratio 7:1. All true, all checkable with a protractor, all worth teaching
-(the *Golden Struts* kit builds this solid).
+(the *Golden Struts* kit builds this solid). One more piece of v1's
+"geometric provenance" deserves rescue: the 6 in 720 = 6 × 120 was
+defined as the E₈-to-D₅ *root-count ratio*, 240/40 = 6 — genuine
+arithmetic (E₈ has 240 roots; D₅ has 40). The later phase reports
+garbled this true ratio into "6 cosets of D₅," which is not a
+well-formed statement; the ratio itself was always honest. And one piece
+remains unrescued even by the full text: v1's claim that "the residual
+matches 1 + 1/|H₃| = 121/120 to within 40 ppm" never defines which
+residual — a sentence this edition preserves only as an exhibit of how
+easily a formula can sound more derived than it is.
 
 **The failure [M — audited].** Three independent cuts, any one fatal:
 

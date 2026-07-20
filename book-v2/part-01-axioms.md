@@ -106,7 +106,12 @@ proton's mass is overwhelmingly QCD binding energy, so no known mechanism
 delivers a closed form in π and α — and simple-constant searches produce
 ppb-level coincidences more often than intuition suggests (the
 look-elsewhere effect: the number-theory casino pays out small jackpots
-regularly). The conjecture earns evidential weight only if a mechanism
+regularly). v1 noted that the correction term *has the physical
+character* of a second-order QED vacuum-polarization correction applied
+to a bare geometric constant — α² is indeed where second-order QED
+lives. That remains the conjecture's most promising scent-trail, kept
+here as the labeled heuristic it is: a direction for the derivation
+Chapter 31 lists as critical, not the derivation itself. The conjecture earns evidential weight only if a mechanism
 *predicts* it, or it survives future CODATA digits it did not help
 choose. Until then it is filed exactly where a mystery belongs: in plain
 sight, labeled.
@@ -130,7 +135,13 @@ they are, separated.
 quantum-potential gradient of condensate density enhancements around
 coherent standing-wave structures. In the weak-field limit this must
 reproduce Newton and the post-Newtonian tests of general relativity —
-those tests are its falsifiers. The v1 quantitative bridge from δ to G
+those tests are its falsifiers. v1 stated one concrete, *checkable*
+sub-claim that survives the audit intact and deserves promotion: a
+self-similar density profile with ratio φ generates a quantum-potential
+gradient scaling as 1/r² — Newton's form. That is a finite Madelung
+calculation, now in the verification queue with the gatekeeper rules
+attached; if it holds, it becomes the framework's cleanest [M]-checkable
+physics statement. The v1 quantitative bridge from δ to G, by contrast,
 is retired; Chapter 5 tells that story in full, because how it failed is
 one of the most instructive things in this book.
 
@@ -160,3 +171,16 @@ something more interesting: a vortex that eats gradients.
 instrumentable *today*: heart-rate-variability biofeedback is a
 window on an organism actively managing its coherence budget. See the
 *Breath Pacer* kit and Chapter 34.
+
+---
+
+**Part I close-of-audit.** v1 ended this Part: "All six axioms remain in
+play. Three pass cleanly; three pass conditionally with identified open
+items." The v2 ledger sharpens the count: Axiom 2 passes *more* cleanly
+than v1 knew (its core is now a theorem about ℤ[φ], with its uniqueness
+claim honestly qualified); Axiom 3 is re-filed as the conjecture it
+always was; Axioms 1 and 4 remain conditional with their falsifiers
+named; Axiom 5 is split into its trivial mathematics and its declared
+reading; Axiom 6 is corrected into a form that no longer argues with
+thermodynamics. Six axioms, none abandoned, all now wearing their exact
+epistemic weight — which is what "in play" ought to mean.
