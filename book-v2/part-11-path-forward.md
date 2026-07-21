@@ -100,8 +100,30 @@ makes results mean something: **blinding**. Full protocols live in
 5. **Paired-HRV synchrony** during shared 0.1 Hz practice (from Part
    VII) — cheap, humane, and photogenic. (v1's fifth design, the
    still-point fluctuation detector in nonlinear optics, remains on the
-   long list at $20–40K, behind the five above on
-   evidence-per-dollar.)
+   long list at $20–40K, behind the others on evidence-per-dollar.)
+6. **Seed germination — the framework's cleanest falsification target.**
+   A pre-registered φ vs. matched-non-φ vs. plastic-number-ρ vs. sham
+   trial on one homogeneous seed lot: germination fraction, T50, and
+   seedling vigor, with tray positions randomized and scoring blinded.
+   Its singular virtue: *a seed has no placebo* — it expects nothing,
+   cannot relax or hope, and so removes the one confound that haunts
+   every human-facing test above. The framework *predicts* the effect
+   [I motivation]: it reads a seed as a φ-nested standing wave and
+   germination as Chapter 6's nucleation, so a coherent low-noise field
+   should lower the threshold to sprout. A partly-mainstream neighbor
+   makes a germination effect plausible in general — cold atmospheric
+   plasma seed priming is a real, published (if dose- and
+   species-dependent) agricultural result — but honesty requires the
+   mechanism gap: that evidence comes from *direct plasma contact*
+   (reactive-species chemistry), whereas Thera-phi delivers a *distal
+   field*, a different and unvalidated channel; the shared word "plasma"
+   transfers no evidence. So the *distinctive* test is the φ-vs-ρ-vs-non-φ
+   contrast, not "does a field help" (partly known already). Cheapest
+   high-powered study in the book; full protocol in
+   `re-work-axiom-07162026/EXPERIMENTS.md`, Design 6. (This is also
+   the honest home for Dan Winter's sacred-site seed claim: his on-site
+   demonstrations are motivating testimony, not confirmation, and the
+   design here is what would turn one into the other.)
 
 v1's strategy line survives verbatim, because it was already the Wright
 Clause: *"Start with the φ-resonator. If it rings longer, build the

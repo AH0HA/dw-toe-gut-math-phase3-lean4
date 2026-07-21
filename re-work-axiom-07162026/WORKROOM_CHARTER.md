@@ -131,6 +131,16 @@ mystery" / "this is our way of seeing it"). The honest framings below are
 12. **"Can a ratio change a resonator?"** [P-open] — the Q-factor
     experiment (Design 2) as a build-along series: φ vs 3/2 vs ρ arms,
     results shown as they come, whatever they are.
+13. **"The one experiment a seed can't fake"** [P-open] — the
+    germination test (Design 6): why seeds are the perfect subject
+    (no placebo — a seed expects nothing), the four-tray φ/non-φ/ρ/sham
+    setup, and the honest split between "does a field help" (partly known
+    — cold-plasma seed priming is real, though that works by direct
+    contact, not the device's distal field) and "does *golden* structure
+    help" (the open question, isolated by the φ-vs-ρ arms). Build-along;
+    results shown whatever they are. The strongest integrity hook the
+    channel has: we're testing our own guru's claim, blinded, and we'll
+    publish either way.
 
 ## Kids' kits (build-able, real-science)
 
@@ -161,8 +171,21 @@ choking-hazard and laser-safety notes where applicable.
    rotating spindle + flashlight: the shadow of a higher thing is
    stranger than the thing. Teaches: projection, the core idea behind
    cut-and-project — and clip #6.
+7. **Sprout Lab** (ages 7+, the real-experiment kit) — matched seed
+   trays, coded labels, a position-randomizing card, and a germination
+   log; optionally paired with a small field source. The child runs a
+   *blinded, controlled* germination trial (treated vs. sham, labels
+   revealed only after counting) and discovers why you rotate the trays
+   and hide the labels. Teaches: real experimental method — controls,
+   blinding, randomization, pre-registered counting — using the honest
+   science-fair version of Design 6. Wonder from a true thing: the kid
+   learns *how we know*, not just *what to believe*. This is the kit that
+   teaches the gatekeeper standard itself, to a seven-year-old, with
+   radish seeds.
 
-Kit development order: 4 → 5 → 1 (cheapest BOM, no tooling) then 2 → 6 → 3.
+Kit development order: 4 → 5 → 1 (cheapest BOM, no tooling) then 7 → 2
+→ 6 → 3. (Kit 7 is cheap, ships without electronics in its base version,
+and teaches the method the whole program runs on — worth prioritizing.)
 
 ## What the human keeps
 
